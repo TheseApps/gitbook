@@ -1,42 +1,45 @@
 {
-    "name": "gitbook",
-    "version": "0.1.0",
-    "devDependencies": {
-        "@biomejs/biome": "^1.9.4",
-        "@changesets/cli": "^2.27.12",
-        "turbo": "^2.5.0",
-        "vercel": "^39.3.0"
-    },
-    "packageManager": "bun@1.2.8",
-    "overrides": {
-        "@codemirror/state": "6.4.1",
-        "react": "18.3.1",
-        "react-dom": "18.3.1",
-        "@gitbook/api": "0.111.0"
-    },
-    "private": true,
-    "scripts": {
-        "dev": "turbo run dev",
-        "dev:v2": "turbo run dev:v2",
-        "build": "turbo run build",
-        "build:v2": "turbo run build:v2",
-        "clean-deps": "rm -rf node_modules && rm -rf packages/*/node_modules",
-        "typecheck": "turbo run typecheck",
-        "format": "biome check --write ./",
-        "format:check": "biome check --diagnostic-level=error ./",
-        "unit": "turbo run unit",
-        "e2e": "turbo run e2e",
-        "e2e-customers": "turbo run e2e-customers",
-        "changeset": "changeset",
-        "changeset-version": "changeset version && bun run format",
-        "release": "turbo run release && changeset publish",
-        "release:preview": "turbo run release:preview",
-        "download:env": "op read op://gitbook-x-dev/gitbook-open/.env.local >> .env.local",
-        "clean": "turbo run clean"
-    },
-    "workspaces": ["packages/*"],
-    "patchedDependencies": {
-        "decode-named-character-reference@1.0.2": "patches/decode-named-character-reference@1.0.2.patch",
-        "@vercel/next@4.4.2": "patches/@vercel%2Fnext@4.4.2.patch"
-    }
+  "name": "gitbook",
+  "version": "0.1.0",
+  "devDependencies": {
+    "@biomejs/biome": "^1.9.4",
+    "@changesets/cli": "^2.27.12",
+    "turbo": "^2.5.0",
+    "vercel": "^39.3.0"
+  },
+  "packageManager": "bun@1.2.8",
+  "overrides": {
+    "@codemirror/state": "6.4.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1",
+    "@gitbook/api": "0.111.0"
+  },
+  "private": true,
+  "scripts": {
+    "dev": "turbo run dev",
+    "dev:v2": "turbo run dev:v2",
+    "build": "turbo run build",
+    "build:v2": "turbo run build:v2",
+    "clean-deps": "rm -rf node_modules && rm -rf packages/*/node_modules",
+    "typecheck": "turbo run typecheck",
+    "format": "biome check --write ./",
+    "format:check": "biome check --diagnostic-level=error ./",
+    "unit": "turbo run unit",
+    "e2e": "turbo run e2e",
+    "e2e-customers": "turbo run e2e-customers",
+    "changeset": "changeset",
+    "changeset-version": "changeset version && bun run format",
+    "release": "turbo run release && changeset publish",
+    "release:preview": "turbo run release:preview",
+    "download:env": "op read op://gitbook-x-dev/gitbook-open/.env.local >> .env.local",
+    "clean": "turbo run clean"
+  },
+  "workspaces": ["packages/*"],
+  "patchedDependencies": {
+    "decode-named-character-reference@1.0.2": "patches/decode-named-character-reference@1.0.2.patch",
+    "@vercel/next@4.4.2": "patches/@vercel%2Fnext@4.4.2.patch"
+  },
+  "trustedDependencies": [
+    "es5-ext"
+  ]
 }
